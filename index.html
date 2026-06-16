@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anbalagan G | ECE Engineer Portfolio</title>
+    <!-- Premium Google Fonts & FontAwesome Matrix Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Orbitron:wght@500;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- HIGH-END ENGINEERING DESIGN SYSTEM --- */
+        :root {
+            --bg-dark: #060a13;
+            --bg-card: rgba(10, 17, 34, 0.75);
+            --border-color: rgba(0, 242, 254, 0.15);
+            --border-hover: rgba(0, 242, 254, 0.7);
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --accent-neon: #00ffaa;
+            --text-main: #f1f5f9;
+            --text-muted: #64748b;
+            --glow-effect: drop-shadow(0 0 12px rgba(0, 242, 254, 0.6));
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            /* Matrix Blueprint Moving Grid Lines Simulation via CSS Animations */
+            background-image: 
+                linear-gradient(rgba(0, 242, 254, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 254, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 3rem 1rem;
+            position: relative;
+        }
+
+        /* --- IMMERSIVE BACKGROUND ANIMATION --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.04) 0%, transparent 70%);
+            animation: radarBeam 20s infinite linear;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes radarBeam {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .tech-code { font-family: 'Fira Code', monospace; }
+        .cyber-heading { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
+
+        /* --- THE CORE MAIN CONTAINER --- */
+        .portfolio-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 950px) {
+            .portfolio-container {
+                grid-template-columns: 380px 1fr;
+                align-items: start;
+            }
+            .sidebar {
+                position: sticky;
+                top: 2.5rem;
+            }
+        }
+
+        /* --- ADVANCED ANIMATED STRUCTURAL GLASS PANELS --- */
+        .panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: panelFadeIn 0.8s ease-out both;
+        }
+
+        @keyframes panelFadeIn {
+            from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        /* Multi-staggering entry calculations */
+        .panel:nth-child(1) { animation-delay: 0.1s; }
+        .panel:nth-child(2) { animation-delay: 0.2s; }
+        .panel:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Hardware Neon Circuit Board Border-Tracing Hover Effects */
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent-neon), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .panel:hover::before {
+            left: 100%;
+        }
+
+        .panel:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 15px 45px -20px rgba(0, 242, 254, 0.45);
+            transform: translateY(-4px) scale(1.005);
+        }
+
+        /* --- PROFILE AVATAR INTRO AREA --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Animated Circular Tech Rings Framing the Photo */
+        .avatar-scanner-ring {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px dashed var(--primary);
+            border-radius: 50%;
+            animation: spinRing 12s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes spinRing {
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0,0,0,0.3);
+            transition: filter 0.3s;
+        }
+
+        .profile-card:hover .profile-img {
+            filter: saturate(1.2) var(--glow-effect);
+        }
+
+        .status-pulse {
+            position: absolute;
+            bottom: 10px;
+            right: 14px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-neon);
+            border-radius: 50%;
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 12px var(--accent-neon);
+            animation: corePulse 2s infinite;
+        }
+
+        @keyframes corePulse {
+            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 255, 170, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(0, 255, 170, 0); }
+            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 255, 170, 0); }
+        }
+
+        /* Sci-Fi Glitch Text Effect For Name on Hover */
+        .name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
+        .title-tag {
+            color: var(--primary);
+            font-size: 0.85rem;
+            background: rgba(0, 242, 254, 0.08);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            margin-top: 0.75rem;
+            display: inline-block;
+        }
+
+        /* --- CONTACT & SOCIAL PLATFORM SYSTEMS --- */
+        .contact-list {
+            list-style: none;
+            margin-top: 2rem;
+            text-align: left;
+            border-top: 1px dashed rgba(255,255,255,0.05);
+            padding-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .contact-item i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-main);
+            padding: 0.85rem;
+            font-size: 1.25rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: rgba(0, 242, 254, 0.12);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-5px);
+            filter: var(--glow-effect);
+        }
+
+        /* --- CONTENT TYPOGRAPHY & SECTIONS --- */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #fff;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.75rem;
+        }
+
+        h2 i {
+            color: var(--primary);
+            filter: var(--glow-effect);
+        }
+
+        /* Interactive Terminal Typewriter Emulation Block */
+        .terminal-block {
+            background: #03060c;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .terminal-text {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .terminal-cursor::after {
+            content: '█';
+            color: var(--accent-neon);
+            animation: blinker 1s steps(2, start) infinite;
+            margin-left: 4px;
+        }
+
+        @keyframes blinker { to { visibility: hidden; } }
+
+        /* --- THE INTERACTIVE SKILLS MATRIX --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media(min-width: 600px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .skill-category-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 1.25rem;
+            border-radius: 10px;
+        }
+
+        .skill-cat-title {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .skills-tag-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 242, 254, 0.04);
+            border: 1px solid rgba(0, 242, 254, 0.12);
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 255, 170, 0.08);
+            border-color: var(--accent-neon);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .skill-tag i {
+            color: var(--secondary);
+        }
+
+        /* --- DYNAMIC ENGINEERING TIMELINE --- */
+        .timeline {
+            border-left: 2px solid rgba(0, 242, 254, 0.15);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        /* Glowing Node Nodes */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-2rem - 7px);
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent-neon);
+            border-color: var(--accent-neon);
+            box-shadow: 0 0 14px var(--accent-neon);
+        }
+
+        .time-meta {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .edu-inst {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-top: 0.2rem;
+        }
+
+        /* --- THE ADVANCED PROJECTS ENVIRONMENT --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 650px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .project-card::after {
+            content: '⚙️';
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            font-size: 2.5rem;
+            opacity: 0.02;
+            transition: all 0.4s;
+        }
+
+        .project-card:hover::after {
+            transform: rotate(90deg);
+            opacity: 0.06;
+        }
+
+        .project-card:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+            background: rgba(0, 242, 254, 0.02);
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-icon {
+            font-size: 1.75rem;
+            color: var(--primary);
+        }
+
+        .project-links a {
+            color: var(--text-muted);
+            margin-left: 0.75rem;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .project-links a:hover {
+            color: var(--accent-neon);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
+        .project-tech {
+            font-size: 0.75rem;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* --- DIAGNOSTICS CODE BLOCK WINDOW --- */
+        .system-ticker {
+            background: #03060c;
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            border-radius: 12px;
+            padding: 1.25rem;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .system-headline {
+            color: var(--accent-neon);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        
+        <!-- ================= LEFT COLUMN: PERSISTENT PROFILE PANEL ================= -->
+        <aside class="sidebar">
+            
+            <div class="panel profile-card">
+                <div class="avatar-wrapper">
+                    <div class="avatar-scanner-ring"></div>
+                    <!-- Replace with your actual photo link down the road -->
+                    <img src="profile.jpg" alt="Anbalagan G" class="profile-img">
+                    <div class="status-pulse"></div>
+                </div>
+                
+                <h1 class="name cyber-heading">Anbalagan G</h1>
+                <span class="tech-code title-tag">&lt;ECE Undergrad /&gt;</span>
+                
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>anbu07541@gmail.com</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 88072682**</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Theni, Tamil Nadu, India</span>
+                    </li>
+                </ul>
+
+                <div class="social-grid">
+                    <a href="https://www.linkedin.com/in/anbalagan-g-91178b291" class="social-btn" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Anbu55" class="social-btn" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/002.7u?utm_source=qr&igsh=MTB0MW9kZHA2b3Jtdw==" class="social-btn" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    
+                </div>
+            </div>
+
+            <!-- Hardware Framework Telemetry -->
+            <div class="system-ticker tech-code">
+                <div class="system-headline"><i class="fa-solid fa-microchip"></i> COMPILER OVERVIEW</div>
+                <div>ENVIRONMENT : Core-Production-RIT</div>
+                <div>HARDWARE    : VLSI Engine & IoT Node</div>
+                <div>BAUD RATE   : 115200 bps</div>
+                <div>STATUS      : <span style="color: var(--accent-neon);">READY // RUNNING</span></div>
+            </div>
+
+        </aside>
+
+        <!-- ================= RIGHT COLUMN: INTERACTIVE CORE MODULES ================= -->
+        <main class="main-content">
+            
+            <!-- Executive About Section -->
+            <section class="panel">
+                <h2 class="cyber-heading"><i class="fa-solid fa-terminal"></i> Terminal / About_Me</h2>
+                <div class="terminal-block">
+                    <p class="terminal-text tech-code">
+                        <span style="color: var(--primary);">&gt; cat anbalagan_profile.cfg</span><br><br>
+                        I am an Electronics and Communication Engineering student at Ramco Institute of Technology. My professional target revolves around programming complex microchip layouts, designing automated hardware systems, and developing fast structural interfaces. I bridges the gap between hardware architecture logic and software implementation.
+                        <span class="terminal-cursor"></span>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Comprehensive Technical Skills Framework -->
+            <section class="panel">
+                <h2 class="cyber-heading"><i class="fa-solid fa-gears"></i> Core_Skills_Matrix</h2>
+                <div class="skills-grid">
+                    
+                    <!-- Category 1 -->
+                    <div class="skill-category-card">
+                        <div class="tech-code skill-cat-title">// Hardware & Core Labs</div>
+                        <div class="skills-tag-wrap">
+                            <span class="skill-tag"><i class="fa-solid fa-microchip"></i> VLSI Engineering</span>
+                            <span class="skill-tag"><i class="fa-solid fa-diagram-project"></i> Verilog HDL</span>
+                            <span class="skill-tag"><i class="fa-solid fa-bolt"></i> Digital Electronics</span>
+                            <span class="skill-tag"><i class="fa-solid fa-cube"></i> 3D Printing Architecture</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="skill-category-card">
+                        <div class="tech-code skill-cat-title">// Ecosystem & IoT</div>
+                        <div class="skills-tag-wrap">
+                            <span class="skill-tag"><i class="fa-solid fa-network-wired"></i> Embedded Systems</span>
+                            <span class="skill-tag"><i class="fa-solid fa-satellite-dish"></i> Internet of Things (IoT)</span>
+                            <span class="skill-tag"><i class="fa-solid fa-graduation-cap"></i> DCA Certified</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="skill-category-card">
+                        <div class="tech-code skill-cat-title">// Software Engineering</div>
+                        <div class="skills-tag-wrap">
+                            <span class="skill-tag"><i class="fa-solid fa-code"></i> C Language</span>
+                            <span class="skill-tag"><i class="fa-brands fa-java"></i> Java Core</span>
+                            <span class="skill-tag"><i class="fa-brands fa-python"></i> Python Engine</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 4 -->
+                    <div class="skill-category-card">
+                        <div class="tech-code skill-cat-title">// Digital Layout Interfaces</div>
+                        <div class="skills-tag-wrap">
+                            <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5 & CSS3</span>
+                            <span class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                            <span class="skill-tag"><i class="fa-solid fa-database"></i> SQL Relational DB</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Project Engineering Showcase Portfolio -->
+            <section class="panel">
+                <h2 class="cyber-heading"><i class="fa-solid fa-folder-open"></i> Executed_Projects</h2>
+                <div class="projects-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div>
+                            <div class="project-header">
+                                <div class="project-icon"><i class="fa-solid fa-house-laptop"></i></div>
+                                <div class="project-links">
+                                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                    <a href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-title">Smart Home Automation Setup</div>
+                            <div class="project-desc">Engineered an end-to-end automated embedded framework processing sensoring data arrays to toggle physical relays efficiently over wireless network protocols.</div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="project-tech">Embedded IoT</span>
+                            <span class="project-tech">Sensors Core</span>
+                            <span class="project-tech">C Hardware</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div>
+                            <div class="project-header">
+                                <div class="project-icon"><i class="fa-solid fa-sparkles"></i></div>
+                                <div class="project-links">
+                                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                    <a href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-title">SK Smart Salon & Spa Web Portal</div>
+                            <div class="project-desc">Designed and deployed a highly responsive operational business platform detailing treatment services, containing explicit validation controls and dynamic CSS styles.</div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="project-tech">HTML5 Portal</span>
+                            <span class="project-tech">CSS Styling</span>
+                            <span class="project-tech">JavaScript</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Education Timeline Matrix -->
+            <section class="panel">
+                <h2 class="cyber-heading"><i class="fa-solid fa-graduation-cap"></i> Academic_Registry</h2>
+                <div class="timeline">
+                    
+                    <!-- Academic Block 1 -->
+                    <div class="timeline-item">
+                        <div class="tech-code time-meta">2023 — 2027 (Current Third Year)</div>
+                        <div class="edu-title">B.E. in Electronics and Communication Engineering</div>
+                        <div class="edu-inst">Ramco Institute of Technology • Rajapalayam</div>
+                    </div>
+
+                    <!-- Academic Block 2 -->
+                    <div class="timeline-item">
+                        <div class="tech-code time-meta">Graduated 2023</div>
+                        <div class="edu-title">Higher Secondary Education (HSC)</div>
+                        <div class="edu-inst">Govt Model Higher Secondary School • Silvarpatti, Theni</div>
+                    </div>
+                    
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
